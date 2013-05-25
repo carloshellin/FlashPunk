@@ -25,7 +25,7 @@ Step 1: Start the Engine
 
 The starting point in all Flash games is the Main class, and so it will also be the starting point in your FlashPunk projects. Usually, your Main class extends the Flash [Sprite][1] class, and might look like this:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import flash.display.Sprite;
@@ -37,11 +37,11 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 But the FlashPunk framework has a bunch of operations it does in the background, so it already has a specialized Sprite class which your Main class will extend. This is the [Engine][2] class. So to initiate your FlashPunk game, your Main class will look something like this:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 import net.flashpunk.Engine;
@@ -55,7 +55,7 @@ import net.flashpunk.Engine;
 		}
 	}
 }
-```
+{% endhighlight %}
 
 We’ll bring our attention to the call to super(), which is the starting point for FlashPunk. This super() call to Engine’s constructor sets some important parameters for our game, which are:
 
@@ -66,7 +66,7 @@ We’ll bring our attention to the call to super(), which is the starting point 
 
 The last parameter is important, because it decides what type of timestep we want to use for our game. But for now leave it as false, different timesteps will be discussed in more detail in later tutorials. Now, let’s test if FlashPunk is starting up properly with a trace. To do this, we’re going to override Engine’s [init()][3] function, like so:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Engine;
@@ -83,7 +83,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 Engine’s init() function is a function called by FlashPunk when (and only when) the game starts up for the first time, and everything is ready to go. Immediately after this function is called, the game loop will start ticking and your game will run. So test the game and see if the trace shows up, and if so we can move onto the next step.
 
@@ -96,7 +96,7 @@ When FlashPunk starts ticking, the game loop updates a specific [World][4]. Worl
 
 So if we were to create a new World called **MyWorld**, we’d create a new class and extend World, like this:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.World;
@@ -108,11 +108,11 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 To change the currently active World in FlashPunk, you just have to set the [FP.world][6] property to the World you want to switch to. So now, to set MyWorld as the starting World of our game, we’ll go into our Main class and add in the following lines:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Engine;
@@ -133,7 +133,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 Now, MyWorld is being updated by your Main Engine class, and will subsequently update any Entities that you add to it, which is what we’ll cover in the next step.
 
@@ -150,7 +150,7 @@ Now we’ve got our Engine running, and making our World tick, but no actual gam
 
 For example, a simple **Player** Entity might move around in its update step, draw a sprite to the screen in its render step, and die when he collides with a **Spike** Entity. But in order for Entities to do any of this, they need to be added to a World. So first we’ll create a new Entity class called **MyEntity**, like this:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Entity;
@@ -162,10 +162,10 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 Now that we’ve created our Entity class, we can add it to our world. Open up **MyWorld** again and add this line into its constructor:
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.World;
@@ -177,7 +177,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 This uses the World class’ [add()][8] function to add a new instance of our MyEntity class to the World when it is created.
 
@@ -187,7 +187,7 @@ This uses the World class’ [add()][8] function to add a new instance of our My
 
 So now, when our World is created and set active, it will tell this Entity to update and render. Let’s test this; go into **MyEntity** and override its [update()][10] function, like so:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Entity;
@@ -204,7 +204,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 When a World’s update is called, it subsequently calls update() for all Entities contained within it. In order to add specific actions to your Entity when it updates, you can override its update() function like we’ve done here. In this case, I’ve just added a simple trace that we will look for to tell if our Entity is updating. If you test the game, the trace message should appear once every frame, at the framerate specified in your Main class’ constructor (in this tutorial, I set it to 60 frames per second).
 
@@ -225,7 +225,7 @@ Since FlashPunk games are designed for bitmap graphics, the image types you’ll
 
 And I put it in a folder called assets. Now, to get it into my game, I have to embed it into a game class. For this example, I will open up our MyEntity class and embed it like so:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Entity;
@@ -239,7 +239,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 The first line embeds the file found at the specified location (relative to this class), and the second line assigns that embedded file to a property. The property doesn’t have to share a name with the file, it can be anything you want, such as PLAYER_IMG, PLANE_SPRITE, or just PLAYER like I’ve used. Just make sure that each embedded file has a unique property reference.
 
@@ -247,7 +247,7 @@ The first line embeds the file found at the specified location (relative to this
 
 But embedding the file alone doesn’t display it on our game screen; in order to do this, we have to tell our MyEntity class to render it to the screen. In FlashPunk, the usual way to go about this is to create a **Graphic** object and assign it to the Entity’s [graphic][11] property. FlashPunk has [several types][12] of Graphic classes available for different purposes. For this example, since our graphic is just a single, non-animated plane sprite, we will use the [Image][13] class, like so:
 
-```actionscript3
+{% highlight actionscript %}
 package
 {
 	import net.flashpunk.Entity;
@@ -264,7 +264,7 @@ package
 		}
 	}
 }
-```
+{% endhighlight %}
 
 If you save that and then run your game, your Entity will render the assigned Graphic at its current location, which is (0, 0) by default (top-left corner of the screen). And that’s the very basics of Entity graphics!
 

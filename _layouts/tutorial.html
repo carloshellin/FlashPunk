@@ -21,7 +21,8 @@
         <ul class="nav nav-pills pull-right">
           <li><a href="{{site.url}}/">Home</a></li>
           <li><a href="http://developers.useflashpunk.net">Community</a></li>
-          <li class="active"><a href="{{site.url}}/docs">Documentation</a></li>
+          <li><a href="{{site.url}}/docs">Documentation</a></li>
+          <li class="active"><a href="{{site.url}}/tutorials">Tutorials</a></li>
           <li><a href="https://github.com/Draknek/FlashPunk">Source</a></li>
         </ul>
         <h3 class="muted">FlashPunk</h3>
@@ -32,13 +33,20 @@
       <div class="span3">
         <!-- Navigation Sidebar -->
         <ul class="nav nav-list">
-          <li class="nav-header">Getting Started</li>
-          <li><a href="#">Setting Up</a></li>
-          <li><a href="#">Hello World</a></li>
-          <li><a href="#">Entities &amp; Worlds</a></li>
+          {% for category in site.categories %}
+          <li class="nav-header">{{ category | first | replace:'-', ' ' | upcase }}</li>
+          {% for posts in category %}
+          {% for post in posts %}
+          {% unless post == posts | first %}
+          <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endunless %}
+          {% endfor %}
+          {% endfor %}
+          {% endfor %}
         </ul>
       </div>
       <div class="span9">
+        <h1>{{ page.title }}</h1>
         <!-- Post Content -->
         {{ content }}
       </div>

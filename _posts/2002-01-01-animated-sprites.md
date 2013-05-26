@@ -4,7 +4,7 @@ title: Animated Sprites
 category: intermediate
 ---
 
-In [FlashPunk Basics][1], we covered [embedding graphics][2] and assigning them to entities Entity as [Image][3] objects. Since the Image class is only for single-frame images, this tutorial will cover how to create an animated graphic using FlashPunk’s [Spritemap][4] class.
+In [FlashPunk Basics][1], we covered [embedding graphics][2] and assigning them to entities Entity as [Image][3] objects. Since the Image class is only for single-frame images, this tutorial will cover how to create an animated graphic using FlashPunk's [Spritemap][4] class.
 
  - Create a Spritemap
  - Create Animations
@@ -14,13 +14,13 @@ In [FlashPunk Basics][1], we covered [embedding graphics][2] and assigning them 
 Create a Spritemap
 --
 
-The first thing we need to do is create a [Spritemap][5] object for our Entity, similar to how we created an Image before. For this example, I’ll be animating this spritesheet: 
+The first thing we need to do is create a [Spritemap][5] object for our Entity, similar to how we created an Image before. For this example, I'll be animating this spritesheet: 
 
 > <img src="/uploads/default/15/c26c6646668e1482.png" width="288" height="64">
 > 
 > *2010 © Tyriq Plummer*
 
-The spritesheet’s total size is 288×64 pixels, but each individual frame is 48×32 pixels, which is what we need to know to create it into a [Spritemap][6] object. So in this example, we will create a Player class and embed the PNG first: 
+The spritesheet's total size is 288×64 pixels, but each individual frame is 48×32 pixels, which is what we need to know to create it into a [Spritemap][6] object. So in this example, we will create a Player class and embed the PNG first: 
 
 {% highlight actionscript %}
 package
@@ -40,7 +40,7 @@ package
 }
 {% endhighlight %}
 
-Next, we’ll create the Spritemap object and assign it to a variable: 
+Next, we'll create the Spritemap object and assign it to a variable: 
 
 {% highlight actionscript %}
 package
@@ -92,7 +92,7 @@ package
 }
 {% endhighlight %}
 
-Here, I create two animations, “stand” and “run”. The add() function takes 4 parameters, which are as follows:
+Here, I create two animations, "stand" and "run". The add() function takes 4 parameters, which are as follows:
 
  - Name (a string)
  - Frames (an array frames to play)
@@ -108,7 +108,7 @@ You name the animation so you can access it later, when you want to play or swit
 
 The third value is the animation speed, in frames per second, at which you want it to animate. I chose 20 for these two particular animations. And finally, the last parameter is whether you want the animation to loop or not. Non-looping animations will stop on the last frame and stay there until you start them again or change the animation. Looping animations will keep cycling through the selected frames infinitely until you stop or change the animation. 
 
-Finally, don’t forget to assign the Spritemap to the Entity, otherwise it won’t be displayed: 
+Finally, don't forget to assign the Spritemap to the Entity, otherwise it won't be displayed: 
 
 {% highlight actionscript %}
 package
@@ -135,13 +135,13 @@ package
 
 Playing animations
 
-Once you’ve created your desired animations, you can tell them which animation to play using the Spritemap’s [play()][8] function, like this: 
+Once you've created your desired animations, you can tell them which animation to play using the Spritemap's [play()][8] function, like this: 
 
 {% highlight actionscript %}
 sprSwordguy.play("stand");
 {% endhighlight %}
 
-So here, I call the play() function and tell it to play my pre-assigned “stand” animation. The animation will then start at the first frame, animate through the assigned frames, and loop continuously if desired. You can call play() at any time to switch which animation your Entity is playing. 
+So here, I call the play() function and tell it to play my pre-assigned "stand" animation. The animation will then start at the first frame, animate through the assigned frames, and loop continuously if desired. You can call play() at any time to switch which animation your Entity is playing. 
 TIP
 
 > If you tell your Spritemap to play an animation that it is already

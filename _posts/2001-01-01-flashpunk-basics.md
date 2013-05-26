@@ -4,7 +4,7 @@ title: FlashPunk Basics
 category: basic
 ---
 
-In this tutorial we'll cover the very basics of FlashPunk. This will serve as a primer for most of the other tutorials, so once you’ve got your code editor working and SWFs compiling, start here.
+In this tutorial we'll cover the very basics of FlashPunk. This will serve as a primer for most of the other tutorials, so once you've got your code editor working and SWFs compiling, start here.
 
  - Step 1: Start the Engine
  - Step 2: Creating Worlds
@@ -57,14 +57,14 @@ import net.flashpunk.Engine;
 }
 {% endhighlight %}
 
-We’ll bring our attention to the call to super(), which is the starting point for FlashPunk. This super() call to Engine’s constructor sets some important parameters for our game, which are:
+We'll bring our attention to the call to super(), which is the starting point for FlashPunk. This super() call to Engine's constructor sets some important parameters for our game, which are:
 
  - **Width** of the screen (pixels)
  - **Height** of the screen (pixels)
  - **Framerate** of the game (frames per second)
  - **Fixed-framerate** (defaults to false)
 
-The last parameter is important, because it decides what type of timestep we want to use for our game. But for now leave it as false, different timesteps will be discussed in more detail in later tutorials. Now, let’s test if FlashPunk is starting up properly with a trace. To do this, we’re going to override Engine’s [init()][3] function, like so:
+The last parameter is important, because it decides what type of timestep we want to use for our game. But for now leave it as false, different timesteps will be discussed in more detail in later tutorials. Now, let's test if FlashPunk is starting up properly with a trace. To do this, we're going to override Engine's [init()][3] function, like so:
 
 {% highlight actionscript %}
 package
@@ -85,16 +85,16 @@ package
 }
 {% endhighlight %}
 
-Engine’s init() function is a function called by FlashPunk when (and only when) the game starts up for the first time, and everything is ready to go. Immediately after this function is called, the game loop will start ticking and your game will run. So test the game and see if the trace shows up, and if so we can move onto the next step.
+Engine's init() function is a function called by FlashPunk when (and only when) the game starts up for the first time, and everything is ready to go. Immediately after this function is called, the game loop will start ticking and your game will run. So test the game and see if the trace shows up, and if so we can move onto the next step.
 
 
 
 Step 2: Creating Worlds
 --
 
-When FlashPunk starts ticking, the game loop updates a specific [World][4]. World is an organizational class in FlashPunk: you can have any amount of Worlds you want, but only one World can be active at once, and when a World is active, it will update and render all and any [Entity][5] objects added to it. So a simple game might have a **Menu** and **Gameplay** World. More complex games, such as a level-based platformer, might have a menu World and then a separate World for each level of the game. It’s up to the developer how they organize it.
+When FlashPunk starts ticking, the game loop updates a specific [World][4]. World is an organizational class in FlashPunk: you can have any amount of Worlds you want, but only one World can be active at once, and when a World is active, it will update and render all and any [Entity][5] objects added to it. So a simple game might have a **Menu** and **Gameplay** World. More complex games, such as a level-based platformer, might have a menu World and then a separate World for each level of the game. It's up to the developer how they organize it.
 
-So if we were to create a new World called **MyWorld**, we’d create a new class and extend World, like this:
+So if we were to create a new World called **MyWorld**, we'd create a new class and extend World, like this:
 
 {% highlight actionscript %}
 package
@@ -110,7 +110,7 @@ package
 }
 {% endhighlight %}
 
-To change the currently active World in FlashPunk, you just have to set the [FP.world][6] property to the World you want to switch to. So now, to set MyWorld as the starting World of our game, we’ll go into our Main class and add in the following lines:
+To change the currently active World in FlashPunk, you just have to set the [FP.world][6] property to the World you want to switch to. So now, to set MyWorld as the starting World of our game, we'll go into our Main class and add in the following lines:
 
 {% highlight actionscript %}
 package
@@ -135,20 +135,20 @@ package
 }
 {% endhighlight %}
 
-Now, MyWorld is being updated by your Main Engine class, and will subsequently update any Entities that you add to it, which is what we’ll cover in the next step.
+Now, MyWorld is being updated by your Main Engine class, and will subsequently update any Entities that you add to it, which is what we'll cover in the next step.
 
 Assigning FP.world does not immediately change the active World, but instead sets an internal flag to change the World at the end of the frame. So the World will not actually be switched until the current frame in your game loop has completed.
 
 Step 3: Creating Entities
 --
 
-Now we’ve got our Engine running, and making our World tick, but no actual game objects in our program. So the next step is to work with the most common class you will be working with in FlashPunk, the [Entity][7] class. An Entity represents any game object that can:
+Now we've got our Engine running, and making our World tick, but no actual game objects in our program. So the next step is to work with the most common class you will be working with in FlashPunk, the [Entity][7] class. An Entity represents any game object that can:
 
  - Update (movement, AI, and perform other game logic)
  - Render (draw graphics to the screen)
  - Collide (interact with other Entities)
 
-For example, a simple **Player** Entity might move around in its update step, draw a sprite to the screen in its render step, and die when he collides with a **Spike** Entity. But in order for Entities to do any of this, they need to be added to a World. So first we’ll create a new Entity class called **MyEntity**, like this:
+For example, a simple **Player** Entity might move around in its update step, draw a sprite to the screen in its render step, and die when he collides with a **Spike** Entity. But in order for Entities to do any of this, they need to be added to a World. So first we'll create a new Entity class called **MyEntity**, like this:
 
 {% highlight actionscript %}
 package
@@ -164,7 +164,7 @@ package
 }
 {% endhighlight %}
 
-Now that we’ve created our Entity class, we can add it to our world. Open up **MyWorld** again and add this line into its constructor:
+Now that we've created our Entity class, we can add it to our world. Open up **MyWorld** again and add this line into its constructor:
 {% highlight actionscript %}
 package
 {
@@ -179,13 +179,13 @@ package
 }
 {% endhighlight %}
 
-This uses the World class’ [add()][8] function to add a new instance of our MyEntity class to the World when it is created.
+This uses the World class' [add()][8] function to add a new instance of our MyEntity class to the World when it is created.
 
 
 > Conversely, you can remove an object from a World with the [remove()][9]
 > function.
 
-So now, when our World is created and set active, it will tell this Entity to update and render. Let’s test this; go into **MyEntity** and override its [update()][10] function, like so:
+So now, when our World is created and set active, it will tell this Entity to update and render. Let's test this; go into **MyEntity** and override its [update()][10] function, like so:
 
 {% highlight actionscript %}
 package
@@ -206,7 +206,7 @@ package
 }
 {% endhighlight %}
 
-When a World’s update is called, it subsequently calls update() for all Entities contained within it. In order to add specific actions to your Entity when it updates, you can override its update() function like we’ve done here. In this case, I’ve just added a simple trace that we will look for to tell if our Entity is updating. If you test the game, the trace message should appear once every frame, at the framerate specified in your Main class’ constructor (in this tutorial, I set it to 60 frames per second).
+When a World's update is called, it subsequently calls update() for all Entities contained within it. In order to add specific actions to your Entity when it updates, you can override its update() function like we've done here. In this case, I've just added a simple trace that we will look for to tell if our Entity is updating. If you test the game, the trace message should appear once every frame, at the framerate specified in your Main class' constructor (in this tutorial, I set it to 60 frames per second).
 
 > <img src="/uploads/default/14/dacb53854269762a.png" width="345" height="226">
 > 
@@ -217,7 +217,7 @@ When a World’s update is called, it subsequently calls update() for all Entiti
 Step 4: Embedding graphics
 ---
 
-Since FlashPunk games are designed for bitmap graphics, the image types you’ll be working with are mostly PNG, GIF, and JPEGs. Once you’ve got an image prepared, find a place in your project directory to store your graphics and move the image into there. For example, I’m using this little sprite:
+Since FlashPunk games are designed for bitmap graphics, the image types you'll be working with are mostly PNG, GIF, and JPEGs. Once you've got an image prepared, find a place in your project directory to store your graphics and move the image into there. For example, I'm using this little sprite:
 
 > <img src="/uploads/default/13/a10c0e2cfd0f3a49.png" width="42" height="21">
 >
@@ -241,11 +241,11 @@ package
 }
 {% endhighlight %}
 
-The first line embeds the file found at the specified location (relative to this class), and the second line assigns that embedded file to a property. The property doesn’t have to share a name with the file, it can be anything you want, such as PLAYER_IMG, PLANE_SPRITE, or just PLAYER like I’ve used. Just make sure that each embedded file has a unique property reference.
+The first line embeds the file found at the specified location (relative to this class), and the second line assigns that embedded file to a property. The property doesn't have to share a name with the file, it can be anything you want, such as PLAYER_IMG, PLANE_SPRITE, or just PLAYER like I've used. Just make sure that each embedded file has a unique property reference.
 
 > If you're using FlashDevelop, you can right-click on the image in your project and choose "Generate embed code" to automatically insert an asset metatag at the cursor.
 
-But embedding the file alone doesn’t display it on our game screen; in order to do this, we have to tell our MyEntity class to render it to the screen. In FlashPunk, the usual way to go about this is to create a **Graphic** object and assign it to the Entity’s [graphic][11] property. FlashPunk has [several types][12] of Graphic classes available for different purposes. For this example, since our graphic is just a single, non-animated plane sprite, we will use the [Image][13] class, like so:
+But embedding the file alone doesn't display it on our game screen; in order to do this, we have to tell our MyEntity class to render it to the screen. In FlashPunk, the usual way to go about this is to create a **Graphic** object and assign it to the Entity's [graphic][11] property. FlashPunk has [several types][12] of Graphic classes available for different purposes. For this example, since our graphic is just a single, non-animated plane sprite, we will use the [Image][13] class, like so:
 
 {% highlight actionscript %}
 package
@@ -266,7 +266,7 @@ package
 }
 {% endhighlight %}
 
-If you save that and then run your game, your Entity will render the assigned Graphic at its current location, which is (0, 0) by default (top-left corner of the screen). And that’s the very basics of Entity graphics!
+If you save that and then run your game, your Entity will render the assigned Graphic at its current location, which is (0, 0) by default (top-left corner of the screen). And that's the very basics of Entity graphics!
 
 
 ----------

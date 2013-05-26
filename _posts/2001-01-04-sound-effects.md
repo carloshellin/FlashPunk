@@ -13,7 +13,7 @@ In this tutorial, I will teach you how to embed and play sound effects in your g
 Embedding Sounds
 --
 
-Embedding sound effects is very similar to how you [embed graphics][1] in your game. If we have our **Player** Entity, we can embed a sound called “shoot.mp3″ contained in our assets folder like so:
+Embedding sound effects is very similar to how you [embed graphics][1] in your game. If we have our **Player** Entity, we can embed a sound called "shoot.mp3″ contained in our assets folder like so:
 
 {% highlight actionscript %}
 package
@@ -40,7 +40,7 @@ This embeds the sound effects and assigns it to a variable called SHOOT, so we c
 
 Playing sounds
 --
-Sounds in FlashPunk are created and played using [Sfx][2] objects. Here, I’ll create a Sfx object from our embedded sound and assign it to a variable in our Player:
+Sounds in FlashPunk are created and played using [Sfx][2] objects. Here, I'll create a Sfx object from our embedded sound and assign it to a variable in our Player:
 
 {% highlight actionscript %}
 package
@@ -130,7 +130,7 @@ mySfx.play(0.5); // Play the sound with 100% volume, panned to the right speaker
 mySfx.play(1, 1);
 {% endhighlight %}
 
-And if you want to alter the volume or panning factor of a sound effect during playback, you can just assign the Sfx object’s [volume][10] and [pan][11] properties like so:
+And if you want to alter the volume or panning factor of a sound effect during playback, you can just assign the Sfx object's [volume][10] and [pan][11] properties like so:
 
 {% highlight actionscript %}
 // Set the sound's volume to 25%.

@@ -4,7 +4,7 @@ title: Accessing Entities
 category: intermediate
 ---
 
-One of the most common problems new ActionScript programmers come across when developing games is having variables accessible where they need to be and communicating information between game objects. In this tutorial, we'll take a look at some of FlashPunk’s available tools for dealing with this problem.
+One of the most common problems new ActionScript programmers come across when developing games is having variables accessible where they need to be and communicating information between game objects. In this tutorial, we'll take a look at some of FlashPunk's available tools for dealing with this problem.
 
 Finding unique entities
 --
@@ -38,9 +38,9 @@ If you're going to be calling this function a lot, it's a good idea to store the
 Finding multiple entities
 --
 
-FlashPunk has other ways of getting information from other Entities, and several useful functions to simplify the process of communicating between Entities. FlashPunk’s [World][4] class is pumped full of useful functions for fetching Entities by class, type, or layer.
+FlashPunk has other ways of getting information from other Entities, and several useful functions to simplify the process of communicating between Entities. FlashPunk's [World][4] class is pumped full of useful functions for fetching Entities by class, type, or layer.
 
-For example, say you’re creating a scrolling shooter game and your character picks up a bomb powerup; when this powerup is collected, you want to destroy all the enemies in the World. This is where FlashPunk comes in handy! In your bomb object, you could use the following code to find them all:
+For example, say you're creating a scrolling shooter game and your character picks up a bomb powerup; when this powerup is collected, you want to destroy all the enemies in the World. This is where FlashPunk comes in handy! In your bomb object, you could use the following code to find them all:
 
 {% highlight actionscript %}
 public class Bomb extends Entity
@@ -69,9 +69,9 @@ public class Bomb extends Entity
 }
 {% endhighlight %}
 
-Here, we used World’s [getClass()][5] function and told it to fetch all Enemy entities in the world; by passing it the enemyList array, we're telling the function to fill that array with all the Enemy objects so that we can use them in the for-each loop below. So as a result, when Bomb’s explode() function is called, it will then call the die() function of every Enemy!
+Here, we used World's [getClass()][5] function and told it to fetch all Enemy entities in the world; by passing it the enemyList array, we're telling the function to fill that array with all the Enemy objects so that we can use them in the for-each loop below. So as a result, when Bomb's explode() function is called, it will then call the die() function of every Enemy!
 
-You could easily add more conditions inside the for-each loop too, such as checking to make sure the enemy is close enough to the Bomb (to give the bomb an explosion radius), or checking it’s current state (maybe blinking enemies cannot be bombed, etc.) Regardless, this method does not always suffice, so you can use World’s other similar fetching functions as well:
+You could easily add more conditions inside the for-each loop too, such as checking to make sure the enemy is close enough to the Bomb (to give the bomb an explosion radius), or checking it's current state (maybe blinking enemies cannot be bombed, etc.) Regardless, this method does not always suffice, so you can use World's other similar fetching functions as well:
 
  - [getClass()][6] -> gets all Entities by Class
  - [getType()][7] -> gets all Entities by Type (faster than getClass!)
@@ -83,10 +83,7 @@ You could easily add more conditions inside the for-each loop too, such as check
  - [nearestToPoint()][13] -> returns the Entity nearest to the position
  - [nearestToRect()][14] -> returns the Entity nearest to the rectangular area
 
-These functions should provide lots of help when communicating Entities in your games, but if you ever have more involved or specific questions regarding this topic, don’t be afraid to drop by the [help][15] forums and post for assistance!
-
-
-*Original tutorial by Chevy Ray Johnston*
+These functions should provide lots of help when communicating Entities in your games, but if you ever have more involved or specific questions regarding this topic, don't be afraid to drop by the [help][15] forums and post for assistance!
 
 
   [1]: http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WS5b3ccc516d4fbf351e63e3d118a9b90204-7f31.html

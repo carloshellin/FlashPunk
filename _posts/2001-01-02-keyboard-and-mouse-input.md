@@ -78,7 +78,7 @@ package
 }
 {% endhighlight %}
 
-Input’s [check()][5] function will return true if the specified key is held down on the corresponding frame of that update, otherwise it will return false.
+Input's [check()][5] function will return true if the specified key is held down on the corresponding frame of that update, otherwise it will return false.
 
 
 Specific key states
@@ -117,12 +117,12 @@ package
 }
 {% endhighlight %}
 
-The [pressed()][6] function will return true if the key was pressed down on that frame, and the [released()][7] will return true if it was released. Every frame the Input states are updated, so when a key is pressed down, it will be in a “pressed” state for one frame, and then in a “held” state the next frame and no longer “pressed”. So you can call these functions in your Entity updates to manage your game objects’ input.
+The [pressed()][6] function will return true if the key was pressed down on that frame, and the [released()][7] will return true if it was released. Every frame the Input states are updated, so when a key is pressed down, it will be in a "pressed" state for one frame, and then in a "held" state the next frame and no longer "pressed". So you can call these functions in your Entity updates to manage your game objects' input.
 
 Defining controls
 --
 
-Sometimes it’s nice to have certain controls mapped to several different keys; since it’s a pain to have to repeat long statements checking for the state of each key, FlashPunk allows you to define and check controls by name as well. For example, I’ll have our Entity define two different controls, “Shoot” and “Jump”, and then assign several keys to each:
+Sometimes it's nice to have certain controls mapped to several different keys; since it's a pain to have to repeat long statements checking for the state of each key, FlashPunk allows you to define and check controls by name as well. For example, I'll have our Entity define two different controls, "Shoot" and "Jump", and then assign several keys to each:
 
 {% highlight actionscript %}
 package
@@ -154,7 +154,7 @@ package
 }
 {% endhighlight %}
 
-Input’s check(), pressed(), and released() functions all take a Key value or control name as parameters, so you can check for controls just the same as you check for individual keys.
+Input's check(), pressed(), and released() functions all take a Key value or control name as parameters, so you can check for controls just the same as you check for individual keys.
 
 Mouse states
 --

@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: FlashPunk Basics
-category: getting-started
+category: basic
 ---
 
 In this tutorial we'll cover the very basics of FlashPunk. This will serve as a primer for most of the other tutorials, so once you’ve got your code editor working and SWFs compiling, start here.

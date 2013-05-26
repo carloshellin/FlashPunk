@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlashPunk</title>
+    <title>FlashPunk Tutorial: {{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{{site.url}}/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -36,7 +36,7 @@
           {% for category in site.categories %}
           <li class="nav-header">{{ category | first | replace:'-', ' ' | upcase }}</li>
           {% for posts in category %}
-          {% for post in posts %}
+          {% for post in posts reversed %}
           {% unless post == posts | first %}
           <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
           {% endunless %}

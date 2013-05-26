@@ -33,15 +33,19 @@
       <div class="span3">
         <!-- Navigation Sidebar -->
         <ul class="nav nav-list">
-          {% for category in site.categories %}
-          <li class="nav-header">{{ category | first | replace:'-', ' ' | upcase }}</li>
-          {% for posts in category %}
-          {% for post in posts reversed %}
-          {% unless post == posts | first %}
+          <li class="nav-header">Getting Started</li>
+          {% for post in site.categories.getting-started reversed %}
           <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-          {% endunless %}
           {% endfor %}
+
+          <li class="nav-header">Basic</li>
+          {% for post in site.categories.basic reversed %}
+          <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
+
+          <li class="nav-header">Intermediate</li>
+          {% for post in site.categories.intermediate reversed %}
+          <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
       </div>

@@ -6,16 +6,19 @@ category: getting-started
 
 In this tutorial, we'll go through installing and configuring FlashDevelop. FlashDevelop is a free, open source code editor for Windows designed specifically for Flash ActionScript, and is my personal code editor of choice while developing games.
 
-(table of contents links go here when I figure out how to do anchors)
+## Contents
 
- - Step 1: Install FlashDevelop
- - Step 2: Download Flex SDK
- - Step 3: Download Debug Player
- - Step 4: Configure FlashDevelop
- - Step 5: “Hello World” Test
+<ul class="nav nav-pills nav-stacked">
+	<li><a href="#install-flashdevelop">1. Install FlashDevelop</a></li>
+	<li><a href="#hello-world">2. "Hello World" Test</a></li>
+	<li><a href="#download-flex">3. Download Flex SDK</a></li>
+	<li><a href="#download-debug">4. Download Debug Player</a></li>
+	<li><a href="#configure-flashdevelop">5. Configure FlashDevelop</a></li>
+	
+</ul>
 
-Step 1: Install FlashDevelop
---
+<h2 id="install-flashdevelop">Step 1: Install FlashDevelop</h2>
+
 
 First order of business is to get FlashDevelop installed and running on your PC, so let’s do that. Go to the [FlashDevelop website][1] and download the latest version. Unless you’re picky, just use the default installation preferences and follow through with the setup. When that’s done, move on to the next step.
 
@@ -25,8 +28,7 @@ First order of business is to get FlashDevelop installed and running on your PC,
 
 FlashDevelop should automatically download the Flex SDK (necessary for compiling Flash content) and the ActiveX Debug Flash Player (necessary for debugging applications). If it doesn't, please see the extra steps at the bottom of this tutorial.
 
-Step 2: “Hello World" test
---
+<h2 id="hello-world">Step 2: “Hello World" test</h2>
 
 Now we’ll check and see if everything’s running properly by making a very simple program. All this program will do is run a blank Flash game and output the text “Hello World!” to the debugger-log so we know the debug player is working correctly. Start a new project by going to:
 
@@ -113,20 +115,16 @@ If you don’t see the “Hello World!” text, it means that the debugger isn�
 
 And in the Test Movie drop-down box, try changing the display type.
 
-----------
-
-If compilation fails completely, it's likely that something went wrong in the installation process, so you'll have to install the required components manually.
+<p class="alert alert-warning">If compilation fails completely, it's likely that something went wrong in the installation process, so you'll have to install the required components manually.</p>
 
 
-Step 3: Download the Flex SDK
---
+<h2 id="download-flex">Step 3: Download the Flex SDK</h2>
 
 First we need to download the Flex 4 SDK. This is the free codebase provided by Adobe that allows you to develop Flash games; so in order for FlashDevelop to build Flash SWF files, we need to download Flex and tell FlashDevelop where to find it. Go to [this page][3] and download it.
 
 Once you’ve done that, locate your ZIP file and unzip all the Flex files into a location you can remember (for example, I used **C:\Flex**), so we can point FlashDevelop to this location later.
 
-Step 4: Download the Debug Player
---
+<h2 id="download-debug">Step 4: Download the Debug Player</h2>
 
 Now, we have to install the debugger version of Flash Player. This is a special version of Flash Player which has some extra features for developers that you’ll want to be using in FlashDevelop. So go to [this page][4] and scroll down to here:
 
@@ -138,8 +136,7 @@ Below this header are a selection of downloads of the Flash Player debugger. We�
 
 So download that EXE file and put it in the same folder you placed your Flex SDK (eg.**C:\Flex\flashplayer_10_sa_debug.exe**).
 
-Step 5: Configure FlashDevelop
---
+<h2 id="configure-flashdevelop">Step 5: Configure FlashDevelop</h2>
 
 Next we’re going to point FlashDevelop to the Flex SDK and the debug player. Start it up and in the filemenu go to:
 

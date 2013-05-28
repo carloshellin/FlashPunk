@@ -10,4 +10,4 @@ To run the site locally for testing and updating, a `_local.yml` configurtaion f
 
 - To rebuild the site, run `jekyll build --config _local.yml`
 - To serve the site, run `jekyll serve --config _local.yml`
-- To serve the site and watch for local changes, run `jekyll serve --config _local.yml`
+- To serve the site and watch for local changes, run `jekyll serve --watch --config _local.yml`

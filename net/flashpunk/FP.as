@@ -999,6 +999,20 @@
 			if (i < right) quicksortBy(a, i, right, ascending, property);
 		}
 		
+		/**
+		 * Switches the current World at the end of the frame. Call this only if
+		 * you want to use Entity persistence, otherwise just assign FP.world.
+		 * @param	to				The World to switch to.
+		 * @param	inheritAll		If all Entities (not just persistent ones) should be inherited.
+		 */
+		public static function switchWorld(to:World, inheritAll:Boolean = false):void
+		{
+			if (_world == to) return;
+			to._inherit = true;
+			to._inheritAll = inheritAll;
+			_goto = to;
+		}
+		
 		// World information.
 		/** @private */ internal static var _world:World;
 		/** @private */ internal static var _goto:World;

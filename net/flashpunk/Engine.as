@@ -285,6 +285,7 @@
 			FP._world.end();
 			FP._world.updateLists();
 			if (FP._world && FP._world.autoClear && FP._world._tween) FP._world.clearTweens();
+			if (FP._world && FP._goto._inherit) FP._goto.inherit(FP._world, FP._goto._inheritAll);
 			FP._world = FP._goto;
 			FP._goto = null;
 			FP.camera = FP._world.camera;

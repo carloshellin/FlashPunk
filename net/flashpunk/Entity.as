@@ -24,6 +24,11 @@ package net.flashpunk
 		public var collidable:Boolean = true;
 		
 		/**
+		 * If the Entity is persistent across Worlds when FP.switchWorld() is called.
+		 */
+		public var persist:Boolean = false;
+		
+		/**
 		 * X position of the Entity in the World.
 		 */
 		public var x:Number = 0;

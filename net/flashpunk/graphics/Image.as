@@ -334,6 +334,15 @@ package net.flashpunk.graphics
 		}
 		
 		/**
+		 * Centers the Image's originX to its center.
+		 */
+		public function centerOOX():void
+		{
+			originX = _bufferRect.width / 2;
+		}
+		
+		
+		/**
 		 * Width of the image.
 		 */
 		public function get width():uint { return _bufferRect.width; }

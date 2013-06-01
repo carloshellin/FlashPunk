@@ -39,6 +39,16 @@ package net.flashpunk
 		public var y:Number = 0;
 		
 		/**
+		 * Horizontal speed of the Entity in the World.
+		 */
+		public var hspeed:Number = 0;
+		
+		/**
+		 * Vertical speed of the Entity in the World.
+		 */
+		public var vspeed:Number = 0;
+		
+		/**
 		 * Width of the Entity's hitbox.
 		 */
 		public var width:int;
@@ -101,7 +111,8 @@ package net.flashpunk
 		 */
 		override public function update():void 
 		{
-			
+			x += hspeed;
+			y += vspeed;
 		}
 		
 		/**

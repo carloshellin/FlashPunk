@@ -33,7 +33,7 @@ package net.flashpunk.graphics {
 		
 		// Letters
 		/** @private */ private var _letterCount:uint;
-		/** @private */ private var _letterGap:uint;
+		/** @private */ private var _letterGap:int;
 		
 		/**
 		 * Constructor.
@@ -44,7 +44,7 @@ package net.flashpunk.graphics {
 		 * @param	letterGap		the gap between letters in pixels (default is 0)
 		 * @param	lineGap			the gap between lines in pixels (default is 0)
 		 */
-		public function BitmapText (font:BitmapFont, string:String, align:String = 'left', letterGap:uint = 0, lineGap:uint = 0) {
+		public function BitmapText (font:BitmapFont, string:String, align:String = 'left', letterGap:int = 0, lineGap:uint = 0) {
 			_rect = new Rectangle();
 			_font = font;
 			_string = string;

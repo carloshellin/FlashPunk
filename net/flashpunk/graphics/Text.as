@@ -131,6 +131,14 @@
 			}
 		}
 		
+		/**
+		 * Set the style for a subset of the text, for use with
+		 * the richText property.
+		 * Usage:
+		   text.setStyle("red", {color: 0xFF0000});
+		   text.setStyle("big", {size: text.size*2});
+		   text.richText = "<big>Hello</big> <red>world</red>";
+		 */
 		public function setStyle(tagName:String, params:*):void
 		{
 			var format:TextFormat;
@@ -355,6 +363,7 @@
 		
 		/**
 		 * Rich-text string with markup.
+		 * Use setStyle() to control the appearance of marked-up text.
 		 */
 		public function get richText():String { return _richText || _text; }
 		public function set richText(value:String):void
@@ -456,14 +465,24 @@
 		}
 		
 		/**
-		 * The scaled width of the text image.
+		 * The scaled width of the text.
 		 */
-		override public function get scaledWidth():uint { return _width * scaleX * scale; }
+		override public function get scaledWidth():Number { return _width * scaleX * scale; }
 		
 		/**
-		 * The scaled height of the text image.
+		 * Set the scaled width of the text.
 		 */
-		override public function get scaledHeight():uint { return _height * scaleY * scale; }
+		override public function set scaledWidth(w:Number):void { scaleX = w / scale / _width; }
+		
+		/**
+		 * The scaled height of the text.
+		 */
+		override public function get scaledHeight():Number { return _height * scaleY * scale; }
+		
+		/**
+		 * Set the scaled height of the text.
+		 */
+		override public function set scaledHeight(h:Number):void { scaleY = h / scale / _height; }
 		
 		/**
 		 * Width of the text within the image.
